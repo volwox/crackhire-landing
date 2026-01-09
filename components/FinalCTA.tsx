@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { Button } from './Button';
-import { TALLY_URL } from '@/lib/constants';
+import { TALLY_PM_URL } from '@/lib/constants';
 import { trackCTA } from '@/lib/analytics';
 import { ArrowRightIcon } from './Icons';
 
@@ -10,12 +10,12 @@ export function FinalCTA() {
   const pathname = usePathname();
 
   const handleCTA = () => {
-    trackCTA('final_cta', pathname);
+    trackCTA('final_cta_pm', pathname);
   };
 
   return (
     <section className="py-20 sm:py-28 relative overflow-hidden">
-      <div 
+      <div
         className="absolute inset-0 -z-10"
         style={{
           background: `
@@ -30,13 +30,14 @@ export function FinalCTA() {
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
           Ready to Prep Smarter?
         </h2>
+
         <p className="text-lg text-slate-400 mb-8 max-w-xl mx-auto">
-          Stop guessing. Get structured frameworks, practice with scorecards, 
-          and walk into your interview with clarity.
+          Stop guessing. Get structured frameworks, practice with scorecards, and walk into your
+          interview with clarity.
         </p>
-        
+
         <Button
-          href={TALLY_URL}
+          href={TALLY_PM_URL}
           external
           size="lg"
           onClick={handleCTA}
