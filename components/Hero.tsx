@@ -23,11 +23,13 @@ export function Hero({ variant = 'home' }: HeroProps) {
   const isPM = variant === 'pm';
 
   const handlePrimaryCTA = () => {
-    trackCTA('hero_primary_pm', pathname);
+    trackCTA('hero_primary', pathname);
+    // same-tab navigation handled by <a href=...> in Button
   };
 
   const handleSecondaryCTA = () => {
-    trackCTA('hero_secondary_waitlist', pathname);
+    trackCTA('hero_secondary', pathname);
+    // same-tab navigation handled by <a href=...> in Button
   };
 
   const handleEmailSubmit = (e: React.FormEvent) => {
@@ -45,8 +47,10 @@ export function Hero({ variant = 'home' }: HeroProps) {
     }
 
     // Track before redirect
-    trackCTA('hero_email_waitlist', pathname);
-    window.open(TALLY_WAITLIST_URL, '_blank', 'noopener,noreferrer');
+    trackCTA('hero_email_form', pathname);
+
+    // Same-tab redirect (better conversion than window.open)
+    window.location.href = TALLY_WAITLIST_URL;
   };
 
   return (
@@ -100,14 +104,13 @@ export function Hero({ variant = 'home' }: HeroProps) {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10 animate-fade-in-up animation-delay-200">
-            <Button href={TALLY_PM_URL} external size="lg" onClick={handlePrimaryCTA}>
+            <Button href={TALLY_PM_URL} size="lg" onClick={handlePrimaryCTA}>
               Get the PM Playbook — $29
               <ArrowRightIcon size={20} className="ml-1" />
             </Button>
 
             <Button
               href={TALLY_WAITLIST_URL}
-              external
               variant="secondary"
               size="lg"
               onClick={handleSecondaryCTA}
