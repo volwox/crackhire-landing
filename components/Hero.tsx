@@ -46,7 +46,7 @@ export function Hero({ variant = 'home' }: HeroProps) {
 
     // Track before redirect
     trackCTA('hero_email_form', pathname);
-    window.open(TALLY_URL, '_blank', 'noopener,noreferrer');
+   window.open(TALLY_WAITLIST_URL, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -104,7 +104,7 @@ export function Hero({ variant = 'home' }: HeroProps) {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10 animate-fade-in-up animation-delay-200">
             <Button
-              href={TALLY_URL}
+              href={TALLY_PM_URL}
               external
               size="lg"
               onClick={handlePrimaryCTA}
@@ -113,7 +113,7 @@ export function Hero({ variant = 'home' }: HeroProps) {
               <ArrowRightIcon size={20} className="ml-1" />
             </Button>
             <Button
-              href={TALLY_URL}
+             href={TALLY_WAITLIST_URL}
               external
               variant="secondary"
               size="lg"
