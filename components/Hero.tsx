@@ -23,11 +23,11 @@ export function Hero({ variant = 'home' }: HeroProps) {
   const isPM = variant === 'pm';
 
   const handlePrimaryCTA = () => {
-    trackCTA('hero_primary', pathname);
+    trackCTA('hero_primary_pm', pathname);
   };
 
   const handleSecondaryCTA = () => {
-    trackCTA('hero_secondary', pathname);
+    trackCTA('hero_secondary_waitlist', pathname);
   };
 
   const handleEmailSubmit = (e: React.FormEvent) => {
@@ -45,14 +45,14 @@ export function Hero({ variant = 'home' }: HeroProps) {
     }
 
     // Track before redirect
-    trackCTA('hero_email_form', pathname);
-   window.open(TALLY_WAITLIST_URL, '_blank', 'noopener,noreferrer');
+    trackCTA('hero_email_waitlist', pathname);
+    window.open(TALLY_WAITLIST_URL, '_blank', 'noopener,noreferrer');
   };
 
   return (
     <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
       {/* Background gradient */}
-      <div 
+      <div
         className="absolute inset-0 -z-10"
         style={{
           background: `
@@ -62,7 +62,7 @@ export function Hero({ variant = 'home' }: HeroProps) {
         }}
         aria-hidden="true"
       />
-      
+
       <div className="absolute inset-0 -z-10 grid-pattern" aria-hidden="true" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,14 +76,11 @@ export function Hero({ variant = 'home' }: HeroProps) {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 animate-fade-in-up">
             {isPM ? (
               <>
-                Ace Your{' '}
-                <span className="gradient-text">Product Manager</span>
-                {' '}Interview
+                Ace Your <span className="gradient-text">Product Manager</span> Interview
               </>
             ) : (
               <>
-                Cut the Noise.{' '}
-                <span className="gradient-text">Win the Interview.</span>
+                Cut the Noise. <span className="gradient-text">Win the Interview.</span>
               </>
             )}
           </h1>
@@ -91,29 +88,25 @@ export function Hero({ variant = 'home' }: HeroProps) {
           <p className="text-lg sm:text-xl text-slate-400 mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-100">
             {isPM ? (
               <>
-                Structured questions, scoring rubrics, and answer frameworks for product sense, 
+                Structured questions, scoring rubrics, and answer frameworks for product sense,
                 execution, and behavioral rounds. Prep in 24–48 hours, not weeks.
               </>
             ) : (
               <>
-                Role-specific playbooks with structured questions, self-scoring rubrics, 
+                Role-specific playbooks with structured questions, self-scoring rubrics,
                 and proven answer frameworks. Signal over noise. Clarity over chaos.
               </>
             )}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10 animate-fade-in-up animation-delay-200">
-            <Button
-              href={TALLY_PM_URL}
-              external
-              size="lg"
-              onClick={handlePrimaryCTA}
-            >
+            <Button href={TALLY_PM_URL} external size="lg" onClick={handlePrimaryCTA}>
               Get the PM Playbook — $29
               <ArrowRightIcon size={20} className="ml-1" />
             </Button>
+
             <Button
-             href={TALLY_WAITLIST_URL}
+              href={TALLY_WAITLIST_URL}
               external
               variant="secondary"
               size="lg"
@@ -125,13 +118,15 @@ export function Hero({ variant = 'home' }: HeroProps) {
 
           {/* Email capture form */}
           <div className="animate-fade-in-up animation-delay-300">
-            <form 
+            <form
               className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
               onSubmit={handleEmailSubmit}
               noValidate
             >
               <div className="flex-1">
-                <label htmlFor="hero-email" className="sr-only">Email address</label>
+                <label htmlFor="hero-email" className="sr-only">
+                  Email address
+                </label>
                 <input
                   id="hero-email"
                   type="email"
@@ -155,10 +150,12 @@ export function Hero({ variant = 'home' }: HeroProps) {
                   </p>
                 )}
               </div>
+
               <Button type="submit" size="md">
                 Notify Me
               </Button>
             </form>
+
             <p className="text-xs text-slate-500 mt-3">
               Be first to know when we launch new role playbooks.
             </p>
