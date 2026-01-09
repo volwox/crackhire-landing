@@ -50,7 +50,7 @@ export function Button({
         target={external ? '_blank' : undefined}
         rel={external ? 'noopener noreferrer' : undefined}
         className={classes}
-        onClick={onClick as React.MouseEventHandler<HTMLAnchorElement>}
+        onClick={onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
       >
         {children}
       </a>
