@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Button } from './Button';
 import { Badge } from './Badge';
 import { ArrowRightIcon, ZapIcon } from './Icons';
-import { TALLY_URL } from '@/lib/constants';
+import { TALLY_PM_URL, TALLY_WAITLIST_URL } from '@/lib/constants';
 import { trackCTA } from '@/lib/analytics';
 
 interface HeroProps {
