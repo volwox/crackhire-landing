@@ -1,36 +1,60 @@
 /**
- * Analytics utilities for CTA tracking
+ * Analytics utilities for event tracking
  * Fires custom window events for analytics integration
  */
 
-interface CTAEventDetail {
-  location: string;
-  page: string;
-  timestamp: number;
-}
-
 /**
  * Track CTA click events
- * Fires: window.dispatchEvent(new CustomEvent("crackhire:cta_click", { detail }))
- * 
- * @param location - Where on the page the CTA was clicked (e.g., "hero", "pricing", "footer")
- * @param page - Which page the click occurred on (e.g., "/", "/pm")
+ * @param location - Where the CTA was clicked (e.g., "hero", "pricing")
+ * @param page - Which page (e.g., "/", "/pm")
  */
 export function trackCTA(location: string, page: string): void {
   if (typeof window === 'undefined') return;
 
-  const detail: CTAEventDetail = {
-    location,
-    page,
-    timestamp: Date.now(),
-  };
-
   window.dispatchEvent(
-    new CustomEvent('crackhire:cta_click', { detail })
+    new CustomEvent('crackhire:cta_click', {
+      detail: { location, page, timestamp: Date.now() },
+    })
   );
 
-  // Development logging
   if (process.env.NODE_ENV === 'development') {
-    console.log('[CrackHire Analytics]', detail);
+    console.log('[Analytics] cta_click', { location, page });
+  }
+}
+
+/**
+ * Track page view events (for thank-you pages)
+ * @param eventName - Event name without prefix
+ */
+export function trackPageView(eventName: string): void {
+  if (typeof window === 'undefined') return;
+
+  window.dispatchEvent(
+    new CustomEvent(`crackhire_${eventName}`, {
+      detail: { timestamp: Date.now() },
+    })
+  );
+
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`[Analytics] ${eventName}`);
+  }
+}
+
+/**
+ * Track thank-you page CTA clicks
+ * @param type - "pm" or "waitlist"
+ */
+export function trackThankYouCTA(type: 'pm' | 'waitlist'): void {
+  if (typeof window === 'undefined') return;
+
+  const eventName = `crackhire_thankyou_${type}_cta`;
+  window.dispatchEvent(
+    new CustomEvent(eventName, {
+      detail: { timestamp: Date.now() },
+    })
+  );
+
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`[Analytics] ${eventName}`);
   }
 }
