@@ -34,14 +34,12 @@ export default function NotFound() {
             <span className="text-emerald-300 text-2xl">✓</span>
           </div>
 
-          <p className="text-sm text-slate-400 mb-3">Error 404</p>
-
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
             This page doesn&apos;t exist.
           </h1>
 
           <p className="text-lg text-slate-400 max-w-xl mx-auto mb-10">
-            The link may be broken, or the page may have been moved. Choose a next step below.
+            The link may be broken, or the page may have been moved. Choose your next step below.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -60,20 +58,20 @@ export default function NotFound() {
               onClick={onPM}
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-accent-500 hover:bg-accent-600 transition font-medium text-white"
             >
-              Get the PM Playbook
+              Start PM Prep Now
               <ArrowRightIcon size={18} className="ml-2" />
             </a>
           </div>
 
-          <div className="mt-6">
+          <div className="mt-7">
             <a
               href={TALLY_WAITLIST_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={onWaitlist}
-              className="text-sm text-slate-400 hover:text-white transition"
+              className="inline-flex items-center justify-center text-sm text-slate-300 hover:text-white transition underline underline-offset-4 decoration-slate-600 hover:decoration-slate-300"
             >
-              Or join the waitlist for new roles
+              Join the waitlist for upcoming roles
             </a>
           </div>
 
