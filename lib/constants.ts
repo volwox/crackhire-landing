@@ -7,7 +7,8 @@
 // TALLY FORM URL - Single source of truth
 // Replace with your actual Tally form URL
 // ============================================
-export const TALLY_URL = "https://tally.so/r/REPLACE_ME";
+export const TALLY_PM_URL = "https://tally.so/r/rjaeO5";
+export const TALLY_WAITLIST_URL = "https://tally.so/r/2Ea2vg";
 
 // ============================================
 // SITE CONFIGURATION
