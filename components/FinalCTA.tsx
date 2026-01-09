@@ -10,7 +10,7 @@ export function FinalCTA() {
   const pathname = usePathname();
 
   const handleCTA = () => {
-    trackCTA('final_cta_pm', pathname);
+    trackCTA('final_cta', pathname);
   };
 
   return (
@@ -27,28 +27,17 @@ export function FinalCTA() {
       />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-          Ready to Prep Smarter?
-        </h2>
-
+        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Ready to Prep Smarter?</h2>
         <p className="text-lg text-slate-400 mb-8 max-w-xl mx-auto">
-          Stop guessing. Get structured frameworks, practice with scorecards, and walk into your
-          interview with clarity.
+          Stop guessing. Get structured frameworks, practice with scorecards, and walk into your interview with clarity.
         </p>
 
-        <Button
-          href={TALLY_PM_URL}
-          external
-          size="lg"
-          onClick={handleCTA}
-        >
+        <Button href={TALLY_PM_URL} size="lg" onClick={handleCTA}>
           Get the PM Playbook — $29
           <ArrowRightIcon size={20} className="ml-1" />
         </Button>
 
-        <p className="text-sm text-slate-500 mt-6">
-          Instant access · 24–48 hour sprint · Self-scoring rubrics
-        </p>
+        <p className="text-sm text-slate-500 mt-6">Instant access · 24–48 hour sprint · Self-scoring rubrics</p>
       </div>
     </section>
   );
