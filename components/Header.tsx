@@ -10,7 +10,7 @@ export function Header() {
   const pathname = usePathname();
 
   const handleCTAClick = () => {
-    trackCTA('header_pm', pathname);
+    trackCTA('header', pathname);
   };
 
   return (
@@ -19,11 +19,7 @@ export function Header() {
       role="banner"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav
-          className="flex items-center justify-between h-16"
-          role="navigation"
-          aria-label="Main"
-        >
+        <nav className="flex items-center justify-between h-16" role="navigation" aria-label="Main">
           <Link href="/" className="flex items-center gap-2 group">
             <span className="text-xl font-bold tracking-tight">
               <span className="text-white">Crack</span>
@@ -32,38 +28,21 @@ export function Header() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link
-              href="/pm"
-              className="text-sm text-slate-400 hover:text-white transition-colors"
-            >
+            <Link href="/#pricing" className="text-sm text-slate-400 hover:text-white transition-colors">
               PM Playbook
             </Link>
-            <Link
-              href="/#how-it-works"
-              className="text-sm text-slate-400 hover:text-white transition-colors"
-            >
+            <Link href="/#how-it-works" className="text-sm text-slate-400 hover:text-white transition-colors">
               How It Works
             </Link>
-            <Link
-              href="/#pricing"
-              className="text-sm text-slate-400 hover:text-white transition-colors"
-            >
+            <Link href="/#pricing" className="text-sm text-slate-400 hover:text-white transition-colors">
               Pricing
             </Link>
-            <Link
-              href="/#faq"
-              className="text-sm text-slate-400 hover:text-white transition-colors"
-            >
+            <Link href="/#faq" className="text-sm text-slate-400 hover:text-white transition-colors">
               FAQ
             </Link>
           </div>
 
-          <Button
-            href={TALLY_PM_URL}
-            external
-            size="sm"
-            onClick={handleCTAClick}
-          >
+          <Button href={TALLY_PM_URL} size="sm" onClick={handleCTAClick}>
             Get the Playbook
           </Button>
         </nav>
