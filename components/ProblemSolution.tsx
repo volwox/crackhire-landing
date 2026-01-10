@@ -3,10 +3,10 @@ import { CheckIcon, TargetIcon } from './Icons';
 
 export function ProblemSolution() {
   const problems = [
-    'Signal mismatch—you have the skills but your answers don't prove it',
+    'Signal mismatch—you have the skills but your answers don\'t prove it',
     'Missing the keyword patterns interviewers are trained to listen for',
     'Black box feedback: "not a fit" with zero actionable insight',
-    'Practicing answers without knowing how they'll actually be scored',
+   'Practicing answers without knowing how they\'ll actually be scored',
   ];
 
   const solutions = [
