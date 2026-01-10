@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Button } from './Button';
 import { Badge } from './Badge';
 import { ArrowRightIcon, ZapIcon } from './Icons';
-import { TALLY_PM_URL } from '@/lib/constants';
+import { TALLY_PM_URL, TALLY_WAITLIST_URL } from '@/lib/constants';
 import { trackCTA } from '@/lib/analytics';
 
 interface HeroProps {
@@ -18,71 +18,43 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export function Hero({ variant = 'home' }: HeroProps) {
   const pathname = usePathname();
   const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState<string>('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [statusMessage, setStatusMessage] = useState<string>('');
+  const [emailError, setEmailError] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   const isPM = variant === 'pm';
 
-  const primaryCtaText = useMemo(() => {
-    return isPM ? 'Get the PM Playbook — $29' : 'Get the PM Playbook — $29';
-  }, [isPM]);
+  const primaryUrl = useMemo(() => (isPM ? TALLY_PM_URL : TALLY_PM_URL), [isPM]);
+  // Home’da primary yine PM playbook’a gider (sizin mevcut kurgu)
+  const waitlistUrl = TALLY_WAITLIST_URL;
 
   const handlePrimaryCTA = () => {
     trackCTA('hero_primary', pathname);
   };
 
-  const handleWaitlistScroll = () => {
+  const handleSecondaryCTA = () => {
     trackCTA('hero_secondary_waitlist', pathname);
-    const el = document.getElementById('waitlist-email');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      // Focus after scroll
-      setTimeout(() => (el as HTMLInputElement).focus(), 250);
-    }
   };
 
-  const handleEmailSubmit = async (e: React.FormEvent) => {
+  const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setEmailError('');
-    setStatusMessage('');
-    setStatus('idle');
 
-    const trimmed = email.trim();
-
-    if (!trimmed) {
+    if (!email.trim()) {
       setEmailError('Please enter your email');
       return;
     }
-
-    if (!EMAIL_REGEX.test(trimmed)) {
+    if (!EMAIL_REGEX.test(email)) {
       setEmailError('Please enter a valid email');
       return;
     }
 
-    try {
-      setStatus('loading');
-      trackCTA('hero_waitlist_submit', pathname);
+    // IMPORTANT: no redirect here.
+    // For now we only acknowledge. Later you can wire this to your own API endpoint.
+    trackCTA('hero_notify_submit', pathname);
 
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: trimmed, source: 'hero' }),
-      });
-
-      if (!res.ok) {
-        const data = await res.json().catch(() => null);
-        throw new Error(data?.error || 'Could not submit. Please try again.');
-      }
-
-      setStatus('success');
-      setStatusMessage("You're on the list.");
-      // Optional: clear input on success
-      // setEmail('');
-    } catch (err: any) {
-      setStatus('error');
-      setStatusMessage(err?.message || 'Something went wrong. Please try again.');
-    }
+    setSubmitted(true);
+    // Optional: clear input after submit
+    // setEmail('');
   };
 
   return (
@@ -129,36 +101,38 @@ export function Hero({ variant = 'home' }: HeroProps) {
               </>
             ) : (
               <>
-                Role-specific playbooks with structured questions, self-scoring rubrics, and proven
-                answer frameworks. Signal over noise. Clarity over chaos.
+                Role-specific playbooks with structured questions, self-scoring rubrics, and proven answer
+                frameworks. Signal over noise. Clarity over chaos.
               </>
             )}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10 animate-fade-in-up animation-delay-200">
-            <Button href={TALLY_PM_URL} size="lg" onClick={handlePrimaryCTA}>
-              {primaryCtaText}
+            <Button href={primaryUrl} external size="lg" onClick={handlePrimaryCTA}>
+              Get the PM Playbook — $29
               <ArrowRightIcon size={20} className="ml-1" />
             </Button>
 
-            <Button variant="secondary" size="lg" onClick={handleWaitlistScroll}>
+            <Button
+              href={waitlistUrl}
+              external
+              variant="secondary"
+              size="lg"
+              onClick={handleSecondaryCTA}
+            >
               Join Waitlist for New Roles
             </Button>
           </div>
 
-          {/* Waitlist email capture */}
+          {/* Email capture form (NO redirect) */}
           <div className="animate-fade-in-up animation-delay-300">
-            <form
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-              onSubmit={handleEmailSubmit}
-              noValidate
-            >
+            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={handleEmailSubmit} noValidate>
               <div className="flex-1">
-                <label htmlFor="waitlist-email" className="sr-only">
+                <label htmlFor="hero-email" className="sr-only">
                   Email address
                 </label>
                 <input
-                  id="waitlist-email"
+                  id="hero-email"
                   type="email"
                   inputMode="email"
                   autoComplete="email"
@@ -167,40 +141,34 @@ export function Hero({ variant = 'home' }: HeroProps) {
                   onChange={(e) => {
                     setEmail(e.target.value);
                     if (emailError) setEmailError('');
-                    if (status !== 'idle') {
-                      setStatus('idle');
-                      setStatusMessage('');
-                    }
+                    if (submitted) setSubmitted(false);
                   }}
                   className={`w-full px-4 py-3 bg-slate-900 border rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all ${
                     emailError ? 'border-red-500' : 'border-slate-700'
                   }`}
-                  aria-describedby={emailError ? 'waitlist-email-error' : undefined}
+                  aria-describedby={emailError ? 'hero-email-error' : submitted ? 'hero-email-success' : undefined}
                   aria-invalid={emailError ? 'true' : 'false'}
                 />
                 {emailError && (
-                  <p id="waitlist-email-error" className="text-red-400 text-sm mt-1 text-left">
+                  <p id="hero-email-error" className="text-red-400 text-sm mt-1 text-left">
                     {emailError}
+                  </p>
+                )}
+                {submitted && !emailError && (
+                  <p id="hero-email-success" className="text-emerald-400 text-sm mt-1 text-left">
+                    Thanks — you’re on the list.
                   </p>
                 )}
               </div>
 
-              <Button type="submit" size="md" disabled={status === 'loading'}>
-                {status === 'loading' ? 'Saving…' : 'Notify Me'}
+              <Button type="submit" size="md">
+                Notify Me
               </Button>
             </form>
 
-            <div className="mt-3">
-              {status === 'success' && (
-                <p className="text-sm text-emerald-400">{statusMessage}</p>
-              )}
-              {status === 'error' && <p className="text-sm text-red-400">{statusMessage}</p>}
-              {status === 'idle' && (
-                <p className="text-xs text-slate-500">
-                  Be first to know when we launch new role playbooks.
-                </p>
-              )}
-            </div>
+            <p className="text-xs text-slate-500 mt-3">
+              Be first to know when we launch new role playbooks.
+            </p>
           </div>
         </div>
       </div>
