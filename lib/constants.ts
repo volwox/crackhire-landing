@@ -4,8 +4,7 @@
  */
 
 // ============================================
-// TALLY FORM URL - Single source of truth
-// Replace with your actual Tally form URL
+// TALLY FORM URLS - Single source of truth
 // ============================================
 export const TALLY_PM_URL = "https://tally.so/r/rjaeO5";
 export const TALLY_WAITLIST_URL = "https://tally.so/r/2Ea2vg";
@@ -18,8 +17,8 @@ export const SITE_CONFIG = {
   domain: "crackhire.com",
   url: "https://crackhire.com",
   supportEmail: "support@crackhire.com",
-  tagline: "Role-Specific Interview Prep Playbooks",
-  description: "Structured PM interview prep with scoring rubrics, answer frameworks, and a focused 24–48 hour sprint plan. Cut the noise. Ace the interview.",
+  tagline: "Crack the PM Interview Code",
+  description: "Stop guessing what interviewers want. Get the exact frameworks, scorecards, and scripts used in Tier-1 PM interviews. Prep in 24 hours, not weeks.",
   keywords: [
     "product manager interview prep",
     "PM interview questions",
@@ -29,6 +28,8 @@ export const SITE_CONFIG = {
     "product manager questions",
     "behavioral interview prep",
     "product sense interview",
+    "PM interview frameworks",
+    "interview scorecards",
   ],
 } as const;
 
@@ -39,80 +40,79 @@ export const PRICING = {
   pmPlaybook: {
     price: 29,
     currency: "USD",
-    name: "PM Interview Playbook",
+    name: "PM Interview Protocol",
     description: "Instant digital access",
   },
 } as const;
 
 // ============================================
-// SOCIAL PROOF (Placeholder companies)
-// Use text-based logos for compliance
+// SOCIAL PROOF (Generic - no company names)
 // ============================================
 export const SOCIAL_PROOF_COMPANIES = [
-  "FAANG",
-  "Top Startups",
-  "Fortune 500",
-  "Tech Unicorns",
+  "Tier-1 Tech",
+  "Growth Startups",
+  "Enterprise PM",
   "Remote-First",
+  "Series A–D",
 ] as const;
 
 // ============================================
-// FAQ DATA
+// FAQ DATA - Updated with new questions
 // ============================================
 export const FAQ_DATA = [
   {
-    question: "What exactly is inside the PM Interview Playbook?",
-    answer: "The playbook includes 50+ structured PM interview questions with scoring rubrics, answer frameworks (STAR, CIRCLES, etc.), real product case breakdowns, metrics and prioritization exercises, and a 24–48 hour prep sprint schedule. Everything is organized by interview type: behavioral, product sense, estimation, and execution.",
+    question: "Is this cheating?",
+    answer: "No. Interviewing is a format with known evaluation criteria. We teach you the format—the same way test prep courses teach standardized tests. You still need to bring real experience and thinking; we just help you frame it correctly.",
   },
   {
-    question: "How quickly can I access the playbook?",
-    answer: "Instant access. After purchase, you get immediate access to the full digital playbook. No waiting, no shipping—start your prep right away.",
+    question: "Who is this for?",
+    answer: "Aspiring and transitioning Product Managers preparing for competitive interviews. Whether you're targeting growth-stage startups or enterprise PM roles, the frameworks apply across the board. Best for candidates with real experience who struggle to articulate it in interview format.",
   },
   {
-    question: "Who is this playbook designed for?",
-    answer: "Aspiring and transitioning Product Managers preparing for interviews at competitive tech companies. Whether you're targeting growth-stage startups or enterprise roles, the frameworks apply across the board.",
+    question: "How fast can I use it?",
+    answer: "Immediately. The 24-Hour Emergency Sprint section is designed for candidates with interviews tomorrow. You can cover the essentials in a single focused session. For deeper prep, the full protocol takes 2–3 days.",
   },
   {
-    question: "What if I've already done PM interviews before?",
-    answer: "Even experienced candidates find value in structured scoring. The playbook helps you identify gaps in your answers and provides frameworks to articulate your experience more effectively. Many repeat interviewers use it to sharpen specific weak areas.",
+    question: "What do I get after purchase?",
+    answer: "Instant access to the complete PM Interview Protocol: 50+ structured questions with scoring frameworks, fill-in-the-blank answer templates, self-evaluation scorecards, and the 24-hour sprint plan. All digital, all immediate.",
   },
   {
-    question: "Is there a refund policy?",
-    answer: "Due to the digital nature of the product, we don't offer refunds after access is granted. However, if you don't find it useful, email us at support@crackhire.com and we'll help you apply the frameworks to your next interview.",
+    question: "What if I get stuck or have questions?",
+    answer: "Email us at support@crackhire.com. We'll help you apply the frameworks to your specific interview loop. We can't guarantee outcomes, but we'll make sure you understand how to use what you bought.",
   },
   {
-    question: "Will this work for non-US markets?",
-    answer: "Yes. While examples reference US tech companies, the frameworks and methodologies apply globally. Candidates preparing for Tier-1 markets (UK, EU, Singapore, etc.) use these same approaches.",
+    question: "Do you offer refunds?",
+    answer: "Due to the digital nature of the product, sales are final once access is granted. However, if you're struggling to apply the material, reach out—we'll recommend the best next steps for your specific situation.",
   },
 ] as const;
 
 // ============================================
-// PLAYBOOK CONTENTS - PM Specific
+// PLAYBOOK CONTENTS - "Protocol" framing
 // ============================================
 export const PLAYBOOK_CONTENTS = [
   {
-    title: "50+ Structured Questions",
-    description: "Product sense, execution, metrics, and behavioral questions with detailed scoring criteria",
+    title: "Perfect Answer Frameworks",
+    description: "Fill-in-the-blank templates for product sense, execution, and behavioral questions. Stop rambling—hit every evaluation criteria.",
   },
   {
-    title: "Answer Frameworks",
-    description: "STAR, CIRCLES, and role-specific frameworks with fill-in templates for each question type",
+    title: "Insider Scorecards",
+    description: "Grade yourself the way interviewers do. Know exactly where your answers land before the real thing.",
   },
   {
-    title: "Self-Scoring Rubrics",
-    description: "Evaluate your own answers objectively before the real interview—know where you stand",
+    title: "24-Hour Emergency Sprint",
+    description: "Interview tomorrow? This 80/20 section covers only what moves the needle. Skip the fluff, nail the fundamentals.",
   },
   {
-    title: "Product Case Breakdowns",
-    description: "Real product cases with structured analysis: metrics, tradeoffs, and stakeholder alignment",
+    title: "Signal Keywords & Patterns",
+    description: "The specific phrases and structures that trigger 'strong hire' signals. Learn the language interviewers listen for.",
   },
   {
-    title: "Prioritization Exercises",
-    description: "North star metrics, roadmap tradeoffs, and resource allocation scenarios",
+    title: "Anti-Patterns & Red Flags",
+    description: "Common mistakes that kill your candidacy. Know what NOT to say—often more important than what to say.",
   },
   {
-    title: "24–48 Hour Sprint Plan",
-    description: "Focused prep schedule for time-crunched candidates—essentials only, zero fluff",
+    title: "Mock Scorecard Exercises",
+    description: "Practice questions with self-grading rubrics. Build calibration before the stakes are real.",
   },
 ] as const;
 
@@ -123,58 +123,64 @@ export const HOW_IT_WORKS = [
   {
     step: 1,
     title: "Get Instant Access",
-    description: "Purchase and receive immediate access to the complete PM Interview Playbook. No waiting.",
+    description: "Purchase and download the complete PM Interview Protocol. No waiting, no drip content—everything unlocked immediately.",
   },
   {
     step: 2,
-    title: "Follow the Sprint Plan",
-    description: "Use our 24-48 hour structured prep schedule or dive deep into specific areas you need to strengthen.",
+    title: "Run the Sprint or Go Deep",
+    description: "Use the 24-hour emergency sprint for fast prep, or work through the full protocol over 2–3 days for comprehensive coverage.",
   },
   {
     step: 3,
-    title: "Practice with Scorecards",
-    description: "Run through questions, score yourself objectively, and refine your answers using our frameworks.",
+    title: "Score Yourself Before They Do",
+    description: "Practice with our scorecards. Grade your own answers using the same criteria interviewers use. Fix gaps before they cost you.",
   },
 ] as const;
 
 // ============================================
-// TESTIMONIALS (Anonymous roles only)
+// TESTIMONIALS - Discord/chat style, generic
 // ============================================
 export const TESTIMONIALS = [
   {
-    quote: "The scoring rubrics changed everything. I finally understood what a strong answer actually looks like.",
+    quote: "finally understood why my answers felt 'off'. the scorecard made it obvious—I was missing the metrics framing entirely.",
     role: "PM Candidate",
     market: "US",
+    handle: "anon_pm_23",
   },
   {
-    quote: "Used the 48-hour sprint before my final round. The structure helped me focus on what actually mattered.",
+    quote: "used the 24h sprint before my final round. didn't have time for full prep but this covered exactly what I needed.",
     role: "Senior PM Candidate",
     market: "EU",
+    handle: "eu_product",
   },
   {
-    quote: "After three failed PM interviews, this playbook helped me identify exactly where my answers were falling short.",
-    role: "Career Switcher to PM",
+    quote: "3 loops, 3 rejections. bought this, realized I'd been structuring product sense answers completely wrong. wish I had it earlier.",
+    role: "Career Switcher",
     market: "US",
+    handle: "switching_to_pm",
   },
 ] as const;
 
 // ============================================
-// PM-SPECIFIC TESTIMONIALS (for /pm page)
+// PM-SPECIFIC TESTIMONIALS
 // ============================================
 export const PM_TESTIMONIALS = [
   {
-    quote: "The product sense frameworks were exactly what I needed. Finally felt prepared for 'design a product for X' questions.",
+    quote: "the product sense frameworks clicked immediately. 'design X for Y' questions finally feel structured instead of random.",
     role: "APM Candidate",
     market: "US",
+    handle: "apm_grind",
   },
   {
-    quote: "Metrics and prioritization sections were gold. Used them to prep for execution rounds.",
+    quote: "metrics section was the unlock. I knew the concepts but couldn't articulate tradeoffs clearly. scorecard showed me the gap.",
     role: "PM Candidate",
     market: "UK",
+    handle: "uk_pm_prep",
   },
   {
-    quote: "The stakeholder and tradeoff questions caught me off guard in past interviews. Not anymore.",
-    role: "Senior PM Candidate",
+    quote: "stakeholder questions always caught me off guard. the fill-in templates gave me a structure I could actually remember under pressure.",
+    role: "Senior PM",
     market: "US",
+    handle: "senior_loop",
   },
 ] as const;

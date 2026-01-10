@@ -1,93 +1,122 @@
 'use client';
 
-import React from 'react';
+import { forwardRef } from 'react';
+import Link from 'next/link';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
-const baseStyles =
-  'inline-flex items-center justify-center font-semibold tracking-tight rounded-lg transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-950 disabled:opacity-50 disabled:cursor-not-allowed';
-
-const variantStyles: Record<ButtonVariant, string> = {
-  primary:
-    'bg-accent-500 text-white hover:bg-accent-400 focus:ring-accent-500 active:bg-accent-600',
-  secondary:
-    'bg-slate-800 text-slate-100 border border-slate-700 hover:bg-slate-700 hover:border-slate-600 focus:ring-slate-500 active:bg-slate-800',
-  ghost:
-    'bg-transparent text-slate-300 hover:bg-slate-800/50 hover:text-slate-100 focus:ring-slate-500 active:bg-slate-800',
-};
-
-const sizeStyles: Record<ButtonSize, string> = {
-  sm: 'text-sm px-4 py-2 gap-1.5',
-  md: 'text-base px-6 py-3 gap-2',
-  lg: 'text-lg px-8 py-4 gap-2.5',
-};
-
-type CommonProps = {
-  children: React.ReactNode;
+interface ButtonBaseProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
   fullWidth?: boolean;
+  children: React.ReactNode;
   className?: string;
+}
+
+interface ButtonAsButton extends ButtonBaseProps {
+  href?: never;
+  external?: never;
+  type?: 'button' | 'submit' | 'reset';
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
+}
+
+interface ButtonAsLink extends ButtonBaseProps {
+  href: string;
+  external?: boolean;
+  type?: never;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  disabled?: never;
+}
+
+type ButtonProps = ButtonAsButton | ButtonAsLink;
+
+const variantStyles: Record<ButtonVariant, string> = {
+  primary:
+    'bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 text-white shadow-glow hover:shadow-glow-lg',
+  secondary:
+    'bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600',
+  ghost: 'bg-transparent hover:bg-slate-800/50 text-slate-300 hover:text-white',
 };
 
-type AsButtonProps = CommonProps &
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    href?: never;
-  };
+const sizeStyles: Record<ButtonSize, string> = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-5 py-2.5 text-sm',
+  lg: 'px-6 py-3 text-base',
+};
 
-type AsLinkProps = CommonProps &
-  React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-    href: string;
-    /**
-     * NOTE: We intentionally DO NOT open new tabs anywhere for conversion reasons.
-     * This prop is kept for backward compatibility but ignored.
-     */
-    external?: boolean;
-  };
+export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
+  function Button(props, ref) {
+    const {
+      variant = 'primary',
+      size = 'md',
+      fullWidth = false,
+      children,
+      className = '',
+      ...rest
+    } = props;
 
-export function Button(props: AsButtonProps | AsLinkProps) {
-  const {
-    children,
-    variant = 'primary',
-    size = 'md',
-    fullWidth = false,
-    className = '',
-  } = props;
+    const baseStyles = `
+      inline-flex items-center justify-center font-medium rounded-lg
+      transition-all duration-200 ease-out
+      focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-950
+      disabled:opacity-50 disabled:cursor-not-allowed
+    `;
 
-  const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${
-    fullWidth ? 'w-full' : ''
-  } ${className}`.trim();
+    const combinedClassName = `
+      ${baseStyles}
+      ${variantStyles[variant]}
+      ${sizeStyles[size]}
+      ${fullWidth ? 'w-full' : ''}
+      ${className}
+    `.trim();
 
-  if ('href' in props && typeof props.href === 'string') {
-    const { href, onClick, ...rest } = props;
+    // If href is provided, render as link
+    if ('href' in props && props.href) {
+      const { href, external, onClick, ...linkRest } = props as ButtonAsLink;
+      
+      // External links: same tab by default, just add rel for security
+      if (external) {
+        return (
+          <a
+            ref={ref as React.Ref<HTMLAnchorElement>}
+            href={href}
+            rel="noopener noreferrer"
+            onClick={onClick}
+            className={combinedClassName}
+          >
+            {children}
+          </a>
+        );
+      }
+
+      // Internal links: use Next.js Link
+      return (
+        <Link
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          href={href}
+          onClick={onClick}
+          className={combinedClassName}
+        >
+          {children}
+        </Link>
+      );
+    }
+
+    // Otherwise render as button
+    const { type = 'button', onClick, disabled, ...buttonRest } = props as ButtonAsButton;
 
     return (
-      <a
-        {...rest}
-        href={href}
-        className={classes}
+      <button
+        ref={ref as React.Ref<HTMLButtonElement>}
+        type={type}
         onClick={onClick}
-        // Explicitly avoid target=_blank anywhere in the app
-        target={undefined}
-        rel={undefined}
+        disabled={disabled}
+        className={combinedClassName}
       >
         {children}
-      </a>
+      </button>
     );
   }
-
-  const { onClick, disabled, type, ...rest } = props;
-
-  return (
-    <button
-      {...rest}
-      type={type ?? 'button'}
-      className={classes}
-      disabled={disabled}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-}
+);

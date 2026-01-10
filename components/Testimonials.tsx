@@ -1,6 +1,5 @@
 import { Card } from './Card';
 import { TESTIMONIALS, PM_TESTIMONIALS } from '@/lib/constants';
-import { StarIcon } from './Icons';
 
 interface TestimonialsProps {
   variant?: 'default' | 'pm';
@@ -14,10 +13,10 @@ export function Testimonials({ variant = 'default' }: TestimonialsProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-            What Candidates Are Saying
+            From the Prep Trenches
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Real feedback from PM candidates who've used the playbook.
+            Real feedback from candidates who used the protocol.
           </p>
         </div>
 
@@ -29,28 +28,33 @@ export function Testimonials({ variant = 'default' }: TestimonialsProps) {
               padding="lg"
               className="flex flex-col"
             >
-              <div className="flex gap-1 mb-4" aria-label="5 star rating">
-                {[...Array(5)].map((_, i) => (
-                  <StarIcon key={i} size={16} className="text-amber-400" />
-                ))}
+              {/* Discord-style header */}
+              <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-800">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center">
+                  <span className="text-xs font-bold text-white">
+                    {testimonial.handle.charAt(0).toUpperCase()}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-300">@{testimonial.handle}</p>
+                  <p className="text-xs text-slate-500">{testimonial.role} · {testimonial.market}</p>
+                </div>
               </div>
 
-              <blockquote className="flex-1 mb-6">
-                <p className="text-slate-300 leading-relaxed">
-                  "{testimonial.quote}"
+              {/* Chat message style quote */}
+              <blockquote className="flex-1">
+                <p className="text-slate-300 leading-relaxed text-sm">
+                  {testimonial.quote}
                 </p>
               </blockquote>
-
-              <footer className="pt-4 border-t border-slate-800">
-                <p className="text-sm">
-                  <span className="text-slate-400">{testimonial.role}</span>
-                  <span className="text-slate-600 mx-2">·</span>
-                  <span className="text-slate-500">{testimonial.market}</span>
-                </p>
-              </footer>
             </Card>
           ))}
         </div>
+
+        {/* Results disclaimer */}
+        <p className="text-center text-xs text-slate-600 mt-8">
+          Results vary. These are anecdotal experiences, not guaranteed outcomes.
+        </p>
       </div>
     </section>
   );

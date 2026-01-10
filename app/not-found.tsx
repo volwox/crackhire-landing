@@ -1,85 +1,83 @@
-'use client';
-
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { trackCTA } from '@/lib/analytics';
-import { TALLY_PM_URL, TALLY_WAITLIST_URL } from '@/lib/constants';
+import { Button } from '@/components/Button';
+import { TALLY_PM_URL, TALLY_WAITLIST_URL, SITE_CONFIG } from '@/lib/constants';
 import { ArrowRightIcon } from '@/components/Icons';
 
 export default function NotFound() {
-  const pathname = usePathname();
-
-  const onHome = () => trackCTA('404_home', pathname);
-  const onPM = () => trackCTA('404_pm', pathname);
-  const onWaitlist = () => trackCTA('404_waitlist', pathname);
-
   return (
-    <main className="min-h-screen bg-slate-950 text-white relative overflow-hidden">
-      {/* Background */}
+    <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-slate-950">
+      {/* Background gradient */}
       <div
-        className="absolute inset-0 -z-10"
+        className="fixed inset-0 -z-10"
         style={{
           background: `
-            radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 108, 241, 0.18), transparent),
-            radial-gradient(ellipse 60% 40% at 80% 60%, rgba(249, 104, 71, 0.10), transparent)
+            radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 108, 241, 0.1), transparent),
+            radial-gradient(ellipse 60% 40% at 80% 60%, rgba(249, 104, 71, 0.05), transparent)
           `,
         }}
         aria-hidden="true"
       />
-      <div className="absolute inset-0 -z-10 grid-pattern" aria-hidden="true" />
 
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex items-center justify-center min-h-screen">
-        <div className="w-full text-center">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-6">
-            <span className="text-emerald-300 text-2xl">✓</span>
+      <main className="max-w-lg w-full text-center" role="main">
+        {/* 404 badge */}
+        <div className="mb-8">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-slate-800/50 border border-slate-700">
+            <span className="text-3xl font-bold text-slate-400">404</span>
           </div>
-
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
-            This page doesn&apos;t exist.
-          </h1>
-
-          <p className="text-lg text-slate-400 max-w-xl mx-auto mb-10">
-            The link may be broken, or the page may have been moved. Choose your next step below.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/"
-              onClick={onHome}
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-slate-800 hover:bg-slate-700 transition font-medium"
-            >
-              Back to Home
-            </Link>
-
-            <a
-              href={TALLY_PM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={onPM}
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-accent-500 hover:bg-accent-600 transition font-medium text-white"
-            >
-              Start PM Prep Now
-              <ArrowRightIcon size={18} className="ml-2" />
-            </a>
-          </div>
-
-          <div className="mt-7">
-            <a
-              href={TALLY_WAITLIST_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={onWaitlist}
-              className="inline-flex items-center justify-center text-sm text-slate-300 hover:text-white transition underline underline-offset-4 decoration-slate-600 hover:decoration-slate-300"
-            >
-              Join the waitlist for upcoming roles
-            </a>
-          </div>
-
-          <p className="text-xs text-slate-500 mt-10">
-            Need help? support@crackhire.com
-          </p>
         </div>
-      </div>
-    </main>
+
+        {/* Logo */}
+        <Link href="/" className="inline-block mb-8">
+          <span className="text-2xl font-bold tracking-tight">
+            <span className="text-white">Crack</span>
+            <span className="text-accent-500">Hire</span>
+          </span>
+        </Link>
+
+        {/* Headline */}
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+          This page doesn't exist.
+        </h1>
+
+        {/* Body copy */}
+        <p className="text-lg text-slate-400 mb-10">
+          The page you're looking for has been moved, deleted, or never existed.
+          Let's get you back on track.
+        </p>
+
+        {/* Primary CTAs */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+          <Button href="/" size="lg">
+            Back to Home
+          </Button>
+
+          <Button href={TALLY_PM_URL} external variant="primary" size="lg">
+            Start PM Prep Now
+            <ArrowRightIcon size={18} className="ml-1" />
+          </Button>
+        </div>
+
+        {/* Secondary link */}
+        <div className="mb-12">
+          <a
+            href={TALLY_WAITLIST_URL}
+            className="text-sm text-slate-400 hover:text-white transition-colors underline underline-offset-4"
+          >
+            Join the waitlist for upcoming roles
+          </a>
+        </div>
+
+        {/* Support line */}
+        <p className="text-sm text-slate-500">
+          Need help?{' '}
+          <a
+            href={`mailto:${SITE_CONFIG.supportEmail}`}
+            className="text-slate-400 hover:text-white transition-colors"
+          >
+            {SITE_CONFIG.supportEmail}
+          </a>
+        </p>
+      </main>
+    </div>
   );
 }

@@ -15,14 +15,14 @@ import { PMWhatsInside } from './PMWhatsInside';
 import { PMProblemSolution } from './PMProblemSolution';
 
 export const metadata: Metadata = {
-  title: 'PM Interview Playbook — Structured Product Manager Interview Prep',
-  description: 'Ace your PM interview with structured questions, scoring rubrics, and answer frameworks for product sense, execution, metrics, and behavioral rounds. 24–48 hour prep sprint.',
+  title: 'PM Interview Protocol — Crack the PM Interview Code',
+  description: 'Stop guessing what PM interviewers want. Get the exact frameworks, scorecards, and scripts for product sense, execution, and behavioral rounds. Prep in 24 hours.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/pm`,
   },
   openGraph: {
-    title: 'PM Interview Playbook — Structured Product Manager Interview Prep',
-    description: 'Ace your PM interview with structured questions, scoring rubrics, and answer frameworks. 24–48 hour prep sprint.',
+    title: 'PM Interview Protocol — Crack the PM Interview Code',
+    description: 'Frameworks, scorecards, and scripts for Tier-1 PM interviews. 24-hour emergency sprint included.',
     url: `${SITE_CONFIG.url}/pm`,
   },
 };

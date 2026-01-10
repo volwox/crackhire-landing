@@ -5,17 +5,17 @@ import { CheckIcon, TargetIcon } from '@/components/Icons';
 
 export function PMProblemSolution() {
   const problems = [
-    'Product sense questions feel ambiguous—no clear structure',
-    'Metrics and prioritization answers lack depth',
-    'Stakeholder and tradeoff scenarios catch you off guard',
-    'No way to self-evaluate before the real interview',
+    'Product sense questions feel like a guessing game—no clear structure',
+    'You know the concepts but can\'t articulate tradeoffs under pressure',
+    'Metrics answers lack the depth interviewers are scoring for',
+    'No way to know if your answer was "strong hire" or "no hire"',
   ];
 
   const solutions = [
-    'Structured frameworks for product sense, execution, and strategy',
-    'Metrics exercises with north star and tradeoff analysis',
-    'Stakeholder alignment scenarios with sample responses',
-    'Self-scoring rubrics—know exactly where you stand',
+    'Fill-in-the-blank frameworks for every PM question type',
+    'Tradeoff articulation templates that hit scoring criteria',
+    'Metrics exercises with north star and success definition patterns',
+    'Self-scoring rubrics—grade yourself before they do',
   ];
 
   return (
@@ -23,12 +23,12 @@ export function PMProblemSolution() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-            PM Interviews Are{' '}
-            <span className="text-slate-500">Uniquely Difficult</span>
+            Why PM Interviews Feel{' '}
+            <span className="text-red-400">Impossible to Crack</span>
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Product sense, execution, metrics, stakeholders—PM interviews cover a lot.
-            Generic prep won't cut it.
+            Product sense, execution, metrics, stakeholders—PM interviews cover everything.
+            Without the evaluation criteria, you're guessing in the dark.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ export function PMProblemSolution() {
               <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center">
                 <span className="text-red-400 text-xl" aria-hidden="true">✕</span>
               </div>
-              <h3 className="text-xl font-semibold text-slate-200">Common PM Prep Mistakes</h3>
+              <h3 className="text-xl font-semibold text-slate-200">Why You're Getting Dinged</h3>
             </div>
             <ul className="space-y-4">
               {problems.map((problem, index) => (
@@ -55,7 +55,7 @@ export function PMProblemSolution() {
               <div className="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center">
                 <TargetIcon size={20} className="text-brand-400" />
               </div>
-              <h3 className="text-xl font-semibold text-slate-200">The PM Playbook Approach</h3>
+              <h3 className="text-xl font-semibold text-slate-200">The Protocol Approach</h3>
             </div>
             <ul className="space-y-4">
               {solutions.map((solution, index) => (
