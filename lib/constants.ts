@@ -133,7 +133,7 @@ export const HOW_IT_WORKS = [
   {
     step: 3,
     title: "Score Yourself Before They Do",
-    description: "Practice with our scorecards. Grade your own answers using the same criteria interviewers use. Fix gaps before they cost you.",
+    description: "Practice with our scorecards. Grade your own answers using interviewer-style criteria (scorecard checklists). Fix gaps before they cost you.",
   },
 ] as const;
 
