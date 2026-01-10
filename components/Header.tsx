@@ -28,22 +28,34 @@ export function Header() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/#pricing" className="text-sm text-slate-400 hover:text-white transition-colors">
-              PM Playbook
+            <Link 
+              href="/pm" 
+              className="text-sm text-slate-400 hover:text-white transition-colors"
+            >
+              PM Protocol
             </Link>
-            <Link href="/#how-it-works" className="text-sm text-slate-400 hover:text-white transition-colors">
+            <Link 
+              href="/#how-it-works" 
+              className="text-sm text-slate-400 hover:text-white transition-colors"
+            >
               How It Works
             </Link>
-            <Link href="/#pricing" className="text-sm text-slate-400 hover:text-white transition-colors">
+            <Link 
+              href="/#pricing" 
+              className="text-sm text-slate-400 hover:text-white transition-colors"
+            >
               Pricing
             </Link>
-            <Link href="/#faq" className="text-sm text-slate-400 hover:text-white transition-colors">
+            <Link 
+              href="/#faq" 
+              className="text-sm text-slate-400 hover:text-white transition-colors"
+            >
               FAQ
             </Link>
           </div>
 
-          <Button href={TALLY_PM_URL} size="sm" onClick={handleCTAClick}>
-            Get the Playbook
+          <Button href={TALLY_PM_URL} external size="sm" onClick={handleCTAClick}>
+            Get the Cheat Sheet
           </Button>
         </nav>
       </div>

@@ -19,15 +19,19 @@ export function Pricing() {
     <section id="pricing" className="py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Simple, One-Time Pricing</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">Instant access. No subscriptions. No hidden fees.</p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+            One Price. Full Protocol. Instant Access.
+          </h2>
+          <p className="text-slate-400 max-w-2xl mx-auto">
+            No subscriptions. No upsells. Everything unlocked immediately.
+          </p>
         </div>
 
         <div className="max-w-md mx-auto">
           <Card variant="elevated" padding="none" className="border-brand-600/30 overflow-hidden">
             <div className="bg-gradient-to-br from-brand-600/20 to-accent-600/10 p-6 text-center border-b border-slate-800">
               <Badge variant="accent" className="mb-3">
-                PM Interview Playbook
+                PM Interview Protocol
               </Badge>
               <h3 className="text-xl font-bold text-white mb-1">{PRICING.pmPlaybook.name}</h3>
               <p className="text-sm text-slate-400">{PRICING.pmPlaybook.description}</p>
@@ -53,22 +57,23 @@ export function Pricing() {
             </div>
 
             <div className="p-6">
-              <Button href={TALLY_PM_URL} fullWidth size="lg" onClick={handlePricingCTA}>
-                Get the PM Playbook
+              <Button href={TALLY_PM_URL} external fullWidth size="lg" onClick={handlePricingCTA}>
+                Get the PM Cheat Sheet
                 <ArrowRightIcon size={18} className="ml-1" />
               </Button>
 
               <p className="text-xs text-slate-500 text-center mt-4">
-                Digital product. No refunds after access is granted.
+                Secure checkout via Stripe
               </p>
             </div>
           </Card>
 
+          {/* Soft guarantee / support promise */}
           <div className="mt-6 p-4 bg-slate-900/50 rounded-lg border border-slate-800">
             <p className="text-sm text-slate-400 text-center">
-              <span className="text-slate-300 font-medium">Not sure it&apos;s for you?</span> If you
-              don&apos;t find it useful, email us and we&apos;ll help you apply the frameworks in your
-              next interview.
+              <span className="text-slate-300 font-medium">Our promise:</span> Due to the digital nature, 
+              sales are final—but if you get stuck, email us and we'll help you apply the frameworks 
+              to your specific interview loop.
             </p>
           </div>
         </div>
