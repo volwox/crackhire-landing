@@ -64,12 +64,11 @@ export function Pricing() {
             </div>
           </Card>
 
-          {/* Risk reversal */}
           <div className="mt-6 p-4 bg-slate-900/50 rounded-lg border border-slate-800">
             <p className="text-sm text-slate-400 text-center">
-              <span className="text-slate-300 font-medium">Not sure it&apos;s for you?</span>{' '}
-              If you don&apos;t find it useful, email us and we&apos;ll help you apply the frameworks in your next
-              interview.
+              <span className="text-slate-300 font-medium">Not sure it&apos;s for you?</span> If you
+              don&apos;t find it useful, email us and we&apos;ll help you apply the frameworks in your
+              next interview.
             </p>
           </div>
         </div>
