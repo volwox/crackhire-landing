@@ -87,7 +87,7 @@ export function Hero({ variant = 'home' }: HeroProps) {
           <p className="text-lg sm:text-xl text-slate-400 mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-100">
             {isPM ? (
               <>
-                Learn the evaluation format. Use the same scorecards interviewers use.
+                Learn the evaluation format. Use interviewer-style scorecards (criteria-based checklists).
                 Fill-in-the-blank frameworks that hit every criteria. Prep in 24 hours, not weeks.
               </>
             ) : (
