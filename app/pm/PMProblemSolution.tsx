@@ -6,7 +6,7 @@ import { CheckIcon, TargetIcon } from '@/components/Icons';
 export function PMProblemSolution() {
   const problems = [
     'Product sense questions feel like a guessing game—no clear structure',
-    'You know the concepts but can't articulate tradeoffs under pressure',
+    'You know the concepts but can\'t articulate tradeoffs under pressure',
     'Metrics answers lack the depth interviewers are scoring for',
     'No way to know if your answer was "strong hire" or "no hire"',
   ];
