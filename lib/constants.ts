@@ -38,7 +38,7 @@ export const SITE_CONFIG = {
 // ============================================
 export const PRICING = {
   pmPlaybook: {
-    price: 29,
+    price: 49,
     currency: "USD",
     name: "PM Interview Protocol",
     description: "Instant digital access",
