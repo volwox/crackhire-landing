@@ -25,7 +25,8 @@ export function Hero({ variant = 'home' }: HeroProps) {
   };
 
   return (
-    <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
+    // ↓↓↓ Buradaki pb değerlerini düşürdüm (boşluğu kapatır)
+    <section className="relative pt-32 pb-10 sm:pt-40 sm:pb-14 overflow-hidden">
       {/* Background gradient */}
       <div
         className="absolute inset-0 -z-10"
@@ -92,7 +93,8 @@ export function Hero({ variant = 'home' }: HeroProps) {
           </div>
 
           {/* Trust line */}
-          <p className="text-sm text-slate-500 animate-fade-in-up animation-delay-200">
+          {/* ↓↓↓ Biraz aşağı boşluk bıraktım ama kontrollü (mb-0 yerine mb-2) */}
+          <p className="text-sm text-slate-500 mb-2 animate-fade-in-up animation-delay-200">
             Built for Tier-1 PM loops and high-signal interviews.
           </p>
         </div>
