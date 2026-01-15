@@ -58,7 +58,7 @@ export function Pricing() {
 
             <div className="p-6">
               <Button href={TALLY_PM_URL} external fullWidth size="lg" onClick={handlePricingCTA}>
-                Get the PM Cheat Sheet
+                Get the PM Interview Protocol
                 <ArrowRightIcon size={18} className="ml-1" />
               </Button>
 
