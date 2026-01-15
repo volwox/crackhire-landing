@@ -100,7 +100,7 @@ export function Hero({ variant = 'home' }: HeroProps) {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 animate-fade-in-up animation-delay-200">
             <Button href={TALLY_PM_URL} external size="lg" onClick={handlePrimaryCTA}>
-              Get the PM Cheat Sheet — $29
+              Get the PM Interview Protocol — $49
               <ArrowRightIcon size={20} className="ml-1" />
             </Button>
 
