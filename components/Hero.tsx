@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Button } from './Button';
 import { Badge } from './Badge';
@@ -12,13 +11,8 @@ interface HeroProps {
   variant?: 'home' | 'pm';
 }
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 export function Hero({ variant = 'home' }: HeroProps) {
   const pathname = usePathname();
-  const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [submitted, setSubmitted] = useState(false);
 
   const isPM = variant === 'pm';
 
@@ -28,24 +22,6 @@ export function Hero({ variant = 'home' }: HeroProps) {
 
   const handleSecondaryCTA = () => {
     trackCTA('hero_secondary_waitlist', pathname);
-  };
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setEmailError('');
-
-    if (!email.trim()) {
-      setEmailError('Please enter your email');
-      return;
-    }
-    if (!EMAIL_REGEX.test(email)) {
-      setEmailError('Please enter a valid email');
-      return;
-    }
-
-    // Simple success state - no redirect, no external submission
-    trackCTA('hero_notify_submit', pathname);
-    setSubmitted(true);
   };
 
   return (
@@ -116,73 +92,9 @@ export function Hero({ variant = 'home' }: HeroProps) {
           </div>
 
           {/* Trust line */}
-          <p className="text-sm text-slate-500 mb-10 animate-fade-in-up animation-delay-200">
+          <p className="text-sm text-slate-500 animate-fade-in-up animation-delay-200">
             Built for Tier-1 PM loops and high-signal interviews.
           </p>
-
-          {/* Email capture form - NO redirect, success state only */}
-          <div className="animate-fade-in-up animation-delay-300">
-            {!submitted ? (
-              <form 
-                className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" 
-                onSubmit={handleEmailSubmit} 
-                noValidate
-              >
-                <div className="flex-1">
-                  <label htmlFor="hero-email" className="sr-only">
-                    Email address
-                  </label>
-                  <input
-                    id="hero-email"
-                    type="email"
-                    inputMode="email"
-                    autoComplete="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      if (emailError) setEmailError('');
-                    }}
-                    className={`w-full px-4 py-3 bg-slate-900 border rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all ${
-                      emailError ? 'border-red-500' : 'border-slate-700'
-                    }`}
-                    aria-describedby={emailError ? 'hero-email-error' : undefined}
-                    aria-invalid={emailError ? 'true' : 'false'}
-                  />
-                  {emailError && (
-                    <p id="hero-email-error" className="text-red-400 text-sm mt-1 text-left">
-                      {emailError}
-                    </p>
-                  )}
-                </div>
-
-                <Button type="submit" size="md">
-                  Notify Me
-                </Button>
-              </form>
-            ) : (
-              <div className="max-w-md mx-auto text-center p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-lg">
-                <p className="text-emerald-400 font-medium mb-2">
-                  Thanks — you're on the list.
-                </p>
-                <p className="text-sm text-slate-400">
-                  Want the full waitlist experience?{' '}
-                  <a 
-                    href={TALLY_WAITLIST_URL} 
-                    className="text-brand-400 hover:text-brand-300 underline"
-                  >
-                    Join the official waitlist
-                  </a>
-                </p>
-              </div>
-            )}
-
-            {!submitted && (
-              <p className="text-xs text-slate-500 mt-3">
-                Get notified when we launch new role-specific protocols.
-              </p>
-            )}
-          </div>
         </div>
       </div>
     </section>
