@@ -36,7 +36,7 @@ export function FinalCTA() {
         </p>
 
         <Button href={TALLY_PM_URL} external size="lg" onClick={handleCTA}>
-          Get the PM Cheat Sheet — $29
+          Get the PM Interview Protocol — $49
           <ArrowRightIcon size={20} className="ml-1" />
         </Button>
 
