@@ -55,7 +55,7 @@ export function Header() {
           </div>
 
           <Button href={TALLY_PM_URL} external size="sm" onClick={handleCTAClick}>
-            Get the Cheat Sheet
+            Get the PM Interview Protocol
           </Button>
         </nav>
       </div>
