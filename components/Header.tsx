@@ -32,7 +32,7 @@ export function Header() {
               href="/pm" 
               className="text-sm text-slate-400 hover:text-white transition-colors"
             >
-              PM Protocol
+              Emergency Kit
             </Link>
             <Link 
               href="/#how-it-works" 
@@ -55,7 +55,7 @@ export function Header() {
           </div>
 
           <Button href={TALLY_PM_URL} external size="sm" onClick={handleCTAClick}>
-            Get the PM Interview Protocol
+            Download Emergency Kit
           </Button>
         </nav>
       </div>

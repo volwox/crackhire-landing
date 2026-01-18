@@ -1,15 +1,6 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import { SITE_CONFIG } from '@/lib/constants';
-
-// Inter font - will be fetched at build time on Vercel
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
@@ -64,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en">
       <body className="min-h-screen bg-slate-950 font-sans">{children}</body>
     </html>
   );

@@ -16,7 +16,7 @@ export function Testimonials({ variant = 'default' }: TestimonialsProps) {
             From the Prep Trenches
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Real feedback from candidates who used the protocol.
+            Real feedback from candidates who used the kit.
           </p>
         </div>
 

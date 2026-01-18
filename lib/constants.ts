@@ -17,8 +17,9 @@ export const SITE_CONFIG = {
   domain: "crackhire.com",
   url: "https://crackhire.com",
   supportEmail: "support@crackhire.com",
-  tagline: "Crack the PM Interview Code",
-  description: "Stop guessing what interviewers want. Get the exact frameworks, scorecards, and scripts used in Tier-1 PM interviews. Prep in 24 hours, not weeks.",
+  tagline: "PM Interview Emergency Kit",
+  description:
+    "Interview soon? Skip theory. Get the PM Interview Emergency Kit: drill loops, scorecards, scripts, and battle plans to help you present strong-hire signals under pressure. Start in minutes (48 hours to 2 weeks). Results vary.",
   keywords: [
     "product manager interview prep",
     "PM interview questions",
@@ -40,8 +41,8 @@ export const PRICING = {
   pmPlaybook: {
     price: 49,
     currency: "USD",
-    name: "PM Interview Protocol",
-    description: "Instant digital access",
+    name: "PM Interview Emergency Kit",
+    description: "Instant PDF access (bonus Notion tracker)",
   },
 } as const;
 
@@ -66,15 +67,15 @@ export const FAQ_DATA = [
   },
   {
     question: "Who is this for?",
-    answer: "Aspiring and transitioning Product Managers preparing for competitive interviews. Whether you're targeting growth-stage startups or enterprise PM roles, the frameworks apply across the board. Best for candidates with real experience who struggle to articulate it in interview format.",
+    answer: "Candidates with a PM interview coming up soon (as fast as 48 hours, up to ~2 weeks). If you have real experience but your answers ramble, miss metrics/tradeoffs, or fail to hit scoring criteria, this kit gives you a drill-first structure.",
   },
   {
     question: "How fast can I use it?",
-    answer: "Immediately. The 24-Hour Emergency Sprint section is designed for candidates with interviews tomorrow. You can cover the essentials in a single focused session. For deeper prep, the full protocol takes 2–3 days.",
+    answer: "Immediately. You can start in 10 minutes with the drill loop. Then pick a timeline: 2-Day Emergency Sprint (fastest), 7-Day Ramp, or 14-Day Runway.",
   },
   {
     question: "What do I get after purchase?",
-    answer: "Instant access to the complete PM Interview Protocol: 50+ structured questions with scoring frameworks, fill-in-the-blank answer templates, self-evaluation scorecards, and the 24-hour sprint plan. All digital, all immediate.",
+    answer: "Instant access to a self-contained PDF (primary) with scorecards, word-for-word scripts, filled examples, and a drill plan. You also get an optional Notion tracker (bonus) to track reps—Notion is not required.",
   },
   {
     question: "What if I get stuck or have questions?",
@@ -91,28 +92,28 @@ export const FAQ_DATA = [
 // ============================================
 export const PLAYBOOK_CONTENTS = [
   {
-    title: "Perfect Answer Frameworks",
-    description: "Fill-in-the-blank templates for product sense, execution, and behavioral questions. Stop rambling—hit every evaluation criteria.",
+    title: "Interviewer Scorecards",
+    description: "Grade yourself the way they do. Clear criteria, common failure modes, and what a 4/4 answer signals.",
   },
   {
-    title: "Insider Scorecards",
-    description: "Grade yourself the way interviewers do. Know exactly where your answers land before the real thing.",
+    title: "Word-for-Word Script Vault",
+    description: "Stop improvising under pressure. Use clean scripts for clarifying, tradeoffs, uncertainty, and closing strong.",
   },
   {
-    title: "24-Hour Emergency Sprint",
-    description: "Interview tomorrow? This 80/20 section covers only what moves the needle. Skip the fluff, nail the fundamentals.",
+    title: "Emergency Drill Loop (8 minutes)",
+    description: "Rep-based loop: answer → score → fix → repeat. The fastest way to remove no-hire signals quickly.",
   },
   {
-    title: "Signal Keywords & Patterns",
-    description: "The specific phrases and structures that trigger 'strong hire' signals. Learn the language interviewers listen for.",
+    title: "Sprint(12) Blueprints (Filled)",
+    description: "Standardized blueprints for the 12 most common questions—clarify, structure, metrics, tradeoffs, and fixes.",
   },
   {
-    title: "Anti-Patterns & Red Flags",
-    description: "Common mistakes that kill your candidacy. Know what NOT to say—often more important than what to say.",
+    title: "Red Flags & Anti-Patterns",
+    description: "What not to say (and why it kills you). Quick fixes you can apply the same day.",
   },
   {
-    title: "Mock Scorecard Exercises",
-    description: "Practice questions with self-grading rubrics. Build calibration before the stakes are real.",
+    title: "Filled Behavioral Examples Pack",
+    description: "Impact / Conflict / Failure stories with soundbites, probes, and metrics—so you can model the shape fast.",
   },
 ] as const;
 
@@ -122,18 +123,18 @@ export const PLAYBOOK_CONTENTS = [
 export const HOW_IT_WORKS = [
   {
     step: 1,
-    title: "Get Instant Access",
-    description: "Purchase and download the complete PM Interview Protocol. No waiting, no drip content—everything unlocked immediately.",
+    title: "Download the Kit",
+    description: "One-time purchase. Instant PDF access. Optional Notion tracker included (bonus).",
   },
   {
     step: 2,
-    title: "Run the Sprint or Go Deep",
-    description: "Use the 24-hour emergency sprint for fast prep, or work through the full protocol over 2–3 days for comprehensive coverage.",
+    title: "Pick Your Timeline",
+    description: "2-Day Emergency Sprint (fastest) · 7-Day Ramp · 14-Day Runway. Same kit—different pacing.",
   },
   {
     step: 3,
-    title: "Score Yourself Before They Do",
-    description: "Practice with our scorecards. Grade your own answers using interviewer-style criteria (scorecard checklists). Fix gaps before they cost you.",
+    title: "Drill → Score → Fix",
+    description: "Run reps with scorecards. Remove red flags, tighten metrics/tradeoffs, and lock in strong-hire signals.",
   },
 ] as const;
 
@@ -148,7 +149,7 @@ export const TESTIMONIALS = [
     handle: "anon_pm_23",
   },
   {
-    quote: "used the 24h sprint before my final round. didn't have time for full prep but this covered exactly what I needed.",
+    quote: "used the sprint before my final round. didn't have time for full prep but this showed exactly what I was missing under pressure.",
     role: "Senior PM Candidate",
     market: "EU",
     handle: "eu_product",
@@ -178,7 +179,7 @@ export const PM_TESTIMONIALS = [
     handle: "uk_pm_prep",
   },
   {
-    quote: "stakeholder questions always caught me off guard. the fill-in templates gave me a structure I could actually remember under pressure.",
+    quote: "stakeholder questions always caught me off guard. the blueprints gave me a structure I could actually remember under pressure.",
     role: "Senior PM",
     market: "US",
     handle: "senior_loop",

@@ -14,8 +14,6 @@ interface HeroProps {
 export function Hero({ variant = 'home' }: HeroProps) {
   const pathname = usePathname();
 
-  const isPM = variant === 'pm';
-
   const handlePrimaryCTA = () => {
     trackCTA('hero_primary', pathname);
   };
@@ -45,39 +43,27 @@ export function Hero({ variant = 'home' }: HeroProps) {
         <div className="max-w-3xl mx-auto text-center">
           <div className="mb-6 animate-fade-in">
             <Badge variant="accent" icon={<ZapIcon size={14} />}>
-              {isPM ? '24-Hour Emergency Sprint Available' : 'PM Interview Protocol v2.0'}
+              PM Interview Emergency Kit
             </Badge>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 animate-fade-in-up">
-            {isPM ? (
-              <>
-                Don't Just Prep. <span className="gradient-text">Crack the Code.</span>
-              </>
-            ) : (
-              <>
-                Stop Guessing. <span className="gradient-text">Start Scoring.</span>
-              </>
-            )}
+            Interview Soon? <span className="gradient-text">Stop Studying. Start Drilling.</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-slate-400 mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-100">
-            {isPM ? (
-              <>
-                Learn the evaluation format. Use interviewer-style scorecards (criteria-based checklists).
-                Fill-in-the-blank frameworks that hit every criteria. Prep in 24 hours, not weeks.
-              </>
-            ) : (
-              <>
-                The exact frameworks, scorecards, and scripts for Tier-1 PM interviews.
-                Know what "strong hire" looks like—before they score you.
-              </>
-            )}
+            Not a course. A tactical kit built to help you present <span className="text-slate-200">strong-hire signals</span> under pressure—
+            scorecards, scripts, filled blueprints, and drill loops. Start in minutes (as fast as 48 hours, up to ~2 weeks).
+            <span className="text-slate-500">
+              {variant === 'pm'
+                ? ' Built for product sense, execution, metrics, and behavioral loops.'
+                : ' PM Interview Protocol v2.0 inside.'}
+            </span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 animate-fade-in-up animation-delay-200">
             <Button href={TALLY_PM_URL} external size="lg" onClick={handlePrimaryCTA}>
-              Get the PM Interview Protocol — $49
+              Download the Emergency Kit ($49)
               <ArrowRightIcon size={20} className="ml-1" />
             </Button>
 
@@ -88,14 +74,14 @@ export function Hero({ variant = 'home' }: HeroProps) {
               size="lg"
               onClick={handleSecondaryCTA}
             >
-              Join Waitlist for New Roles
+              Not interviewing soon? Join waitlist
             </Button>
           </div>
 
           {/* Trust line */}
           {/* ↓↓↓ Biraz aşağı boşluk bıraktım ama kontrollü (mb-0 yerine mb-2) */}
           <p className="text-sm text-slate-500 mb-2 animate-fade-in-up animation-delay-200">
-            Built for Tier-1 PM loops and high-signal interviews.
+            One-time $49 · Instant PDF access · Optional Notion tracker (bonus) · Results vary. No guarantees.
           </p>
         </div>
       </div>

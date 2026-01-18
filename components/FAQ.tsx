@@ -19,7 +19,7 @@ export function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="text-slate-400">
-            Everything you need to know about the PM Interview Playbook.
+            Everything you need to know about the Emergency Kit.
           </p>
         </div>
 

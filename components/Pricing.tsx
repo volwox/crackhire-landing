@@ -20,7 +20,7 @@ export function Pricing() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-            One Price. Full Protocol. Instant Access.
+            One Price. Emergency Kit. Instant Access.
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
             No subscriptions. No upsells. Everything unlocked immediately.
@@ -31,7 +31,7 @@ export function Pricing() {
           <Card variant="elevated" padding="none" className="border-brand-600/30 overflow-hidden">
             <div className="bg-gradient-to-br from-brand-600/20 to-accent-600/10 p-6 text-center border-b border-slate-800">
               <Badge variant="accent" className="mb-3">
-                PM Interview Protocol
+                PM Interview Emergency Kit
               </Badge>
               <h3 className="text-xl font-bold text-white mb-1">{PRICING.pmPlaybook.name}</h3>
               <p className="text-sm text-slate-400">{PRICING.pmPlaybook.description}</p>
@@ -58,7 +58,7 @@ export function Pricing() {
 
             <div className="p-6">
               <Button href={TALLY_PM_URL} external fullWidth size="lg" onClick={handlePricingCTA}>
-                Get the PM Interview Protocol
+                Download the Emergency Kit
                 <ArrowRightIcon size={18} className="ml-1" />
               </Button>
 
@@ -71,9 +71,9 @@ export function Pricing() {
           {/* Soft guarantee / support promise */}
           <div className="mt-6 p-4 bg-slate-900/50 rounded-lg border border-slate-800">
             <p className="text-sm text-slate-400 text-center">
-              <span className="text-slate-300 font-medium">Our promise:</span> Due to the digital nature, 
-              sales are final—but if you get stuck, email us and we'll help you apply the frameworks 
-              to your specific interview loop.
+              <span className="text-slate-300 font-medium">Support:</span> Due to the digital nature, sales are final—
+              but if you get stuck, email us and we’ll help you apply the kit to your specific interview loop.
+              <span className="text-slate-500"> Results vary. No guarantees.</span>
             </p>
           </div>
         </div>

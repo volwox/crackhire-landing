@@ -12,10 +12,10 @@ export function PMProblemSolution() {
   ];
 
   const solutions = [
-    'Fill-in-the-blank frameworks for every PM question type',
-    'Tradeoff articulation templates that hit scoring criteria',
-    'Metrics exercises with north star and success definition patterns',
-    'Self-scoring rubrics—grade yourself before they do',
+    'Filled blueprints for every PM question type (clarify → structure → metrics → tradeoffs)',
+    'Tradeoff and decision scripts that map cleanly to scoring criteria',
+    'Metrics drills: north star, success definition, and instrumentation logic',
+    'Interviewer-style scorecards—grade yourself before they do',
   ];
 
   return (
@@ -55,7 +55,7 @@ export function PMProblemSolution() {
               <div className="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center">
                 <TargetIcon size={20} className="text-brand-400" />
               </div>
-              <h3 className="text-xl font-semibold text-slate-200">The Protocol Approach</h3>
+              <h3 className="text-xl font-semibold text-slate-200">Your Tactical Battle Plan</h3>
             </div>
             <ul className="space-y-4">
               {solutions.map((solution, index) => (
