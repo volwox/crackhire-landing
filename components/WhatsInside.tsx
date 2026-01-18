@@ -10,13 +10,13 @@ export function WhatsInside() {
     <section className="py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4">PM Interview Protocol v2.0</Badge>
+          <Badge variant="outline" className="mb-4">PM Interview Emergency Kit</Badge>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-            What's Inside the Protocol
+            What's Inside the Emergency Kit
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Everything you need to walk into your PM interview knowing exactly what they're looking for.
-            No fluff. No theory. Just the system.
+            A drill-first kit: scorecards, scripts, filled examples, and a rep loop.
+            No long lectures—just what you can apply under pressure.
           </p>
         </div>
 

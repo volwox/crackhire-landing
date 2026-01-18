@@ -3,17 +3,17 @@ import { CheckIcon, TargetIcon } from './Icons';
 
 export function ProblemSolution() {
   const problems = [
-    'Signal mismatch—you have the skills but your answers don\'t prove it',
-    'Missing the keyword patterns interviewers are trained to listen for',
-    'Black box feedback: "not a fit" with zero actionable insight',
-   'Practicing answers without knowing how they\'ll actually be scored',
+    'Generic answers that sound safe (and get you auto-rejected)',
+    'Rambling under pressure: you miss the exact signal they\'re scoring',
+    'Panic when hard questions hit: zero structure, zero control',
+    'Practicing without a rubric: you don\'t know what “good” looks like',
   ];
 
   const solutions = [
-    'Fill-in-the-blank frameworks that hit every evaluation criteria',
-    'Signal keywords and phrases that trigger "strong hire" scores',
-    'Self-scoring rubrics—grade yourself before they do',
-    '24-hour emergency sprint for last-minute interview prep',
+    'Interviewer-style scorecards: see the criteria and what a 4/4 answer signals',
+    'Word-for-word scripts for the prompts that decide your outcome',
+    'Emergency drill loop (8 minutes): rep → score → fix → repeat',
+    'Filled blueprints + metrics/tradeoff menus for the Sprint(12) core questions',
   ];
 
   return (
@@ -21,12 +21,12 @@ export function ProblemSolution() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-            Why You Keep{' '}
-            <span className="text-red-400">Getting Rejected</span>
+            Recruiters{' '}
+            <span className="text-red-400">Smell Panic</span>
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            It's not your experience. It's how you're packaging it.
-            Interviewers use scorecards—and you're not hitting the criteria.
+            Most candidates try to read more content last minute. They ramble. They freeze. They fail.
+            You don\'t need more theory—you need a drill and a rubric.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export function ProblemSolution() {
               <div className="w-10 h-10 rounded-full bg-brand-500/10 flex items-center justify-center">
                 <TargetIcon size={20} className="text-brand-400" />
               </div>
-              <h3 className="text-xl font-semibold text-slate-200">The Protocol Fix</h3>
+              <h3 className="text-xl font-semibold text-slate-200">Your Tactical Battle Plan</h3>
             </div>
             <ul className="space-y-4">
               {solutions.map((solution, index) => (

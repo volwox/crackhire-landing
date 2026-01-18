@@ -15,14 +15,14 @@ import { PMWhatsInside } from './PMWhatsInside';
 import { PMProblemSolution } from './PMProblemSolution';
 
 export const metadata: Metadata = {
-  title: 'PM Interview Protocol — Crack the PM Interview Code',
-  description: 'Stop guessing what PM interviewers want. Get the exact frameworks, scorecards, and scripts for product sense, execution, and behavioral rounds. Prep in 24 hours.',
+  title: 'PM Interview Emergency Kit — CrackHire',
+  description: 'Interview soon? A drill-first PM kit with scorecards, scripts, and filled blueprints for product sense, execution, metrics, and behavioral loops. Start in minutes (48 hours to 2 weeks).',
   alternates: {
     canonical: `${SITE_CONFIG.url}/pm`,
   },
   openGraph: {
-    title: 'PM Interview Protocol — Crack the PM Interview Code',
-    description: 'Frameworks, scorecards, and scripts for Tier-1 PM interviews. 24-hour emergency sprint included.',
+    title: 'PM Interview Emergency Kit — CrackHire',
+    description: 'Drill-first kit with scorecards, scripts, and filled examples for Tier-1 PM loops. Start in minutes (48 hours to 2 weeks).',
     url: `${SITE_CONFIG.url}/pm`,
   },
 };

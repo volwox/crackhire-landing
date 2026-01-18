@@ -20,7 +20,7 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-2 text-slate-400 text-sm">
             <ZapIcon size={16} className="text-slate-500" />
-            <span>24-hour sprint available</span>
+            <span>Emergency sprint included</span>
           </div>
         </div>
 
@@ -34,8 +34,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-slate-400 text-sm max-w-sm mb-4">
-              Stop guessing what interviewers want. Get the exact frameworks, 
-              scorecards, and scripts for Tier-1 PM interviews.
+              Interview soon? Skip theory. Drill with scorecards, scripts, and battle plans built for high-stakes PM loops.
             </p>
             <a
               href={`mailto:${SITE_CONFIG.supportEmail}`}
@@ -55,7 +54,7 @@ export function Footer() {
                   href="/pm" 
                   className="text-sm text-slate-400 hover:text-white transition-colors"
                 >
-                  PM Protocol
+                  Emergency Kit
                 </Link>
               </li>
               <li>

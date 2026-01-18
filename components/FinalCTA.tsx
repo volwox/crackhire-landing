@@ -28,20 +28,20 @@ export function FinalCTA() {
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-          Your Next Interview Is Coming.
+          You Have One Shot. Don’t Wing It.
         </h2>
         <p className="text-lg text-slate-400 mb-8 max-w-xl mx-auto">
-          Stop guessing what they want to hear. Learn the format. Use the scorecards.
-          Walk in knowing exactly how you'll be evaluated.
+          Your competition has been preparing for weeks. You can get ready fast—if you drill the right way.
+          Download the kit and run the sprint.
         </p>
 
         <Button href={TALLY_PM_URL} external size="lg" onClick={handleCTA}>
-          Get the PM Interview Protocol — $49
+          Download the Emergency Kit ($49)
           <ArrowRightIcon size={20} className="ml-1" />
         </Button>
 
         <p className="text-sm text-slate-500 mt-6">
-          Instant access · 24-hour sprint included · Self-scoring rubrics
+          Instant PDF access · Optional Notion tracker (bonus) · Results vary. No guarantees.
         </p>
       </div>
     </section>

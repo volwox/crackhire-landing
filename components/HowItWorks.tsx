@@ -19,7 +19,7 @@ export function HowItWorks() {
             How It Works
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            From purchase to interview-ready in as little as 24 hours.
+            From purchase to interview-ready fast—as little as 48 hours (or a 7–14 day runway).
           </p>
         </div>
 

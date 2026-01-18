@@ -7,7 +7,7 @@ import { CheckIcon } from '@/components/Icons';
 const PM_CONTENTS = [
   {
     title: 'Product Sense Frameworks',
-    description: '"Design a product for X" and "improve product Y"—fill-in-the-blank templates that hit every evaluation point.',
+    description: '"Design a product for X" and "improve product Y"—filled blueprints that hit every evaluation point.',
   },
   {
     title: 'Execution & Metrics Scripts',
@@ -36,13 +36,13 @@ export function PMWhatsInside() {
     <section className="py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4">PM Interview Protocol v2.0</Badge>
+          <Badge variant="outline" className="mb-4">PM Interview Emergency Kit</Badge>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-            What's Inside the Protocol
+            What's Inside the Emergency Kit
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Everything you need to walk into your PM interview knowing exactly what they're scoring.
-            Organized by interview type. Zero theory—just the system.
+            Drill-first PM material organized by interview type.
+            Scorecards, scripts, and filled examples—so you can perform under pressure.
           </p>
         </div>
 

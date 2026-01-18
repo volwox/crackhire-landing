@@ -9,7 +9,7 @@ export function SocialProofStrip() {
     <section className="py-12 border-y border-slate-800/50 bg-slate-900/30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-center text-sm text-slate-500 mb-6">
-          Used by candidates prepping for interviews at
+          Battle-tested at Tier-1 loops:
         </p>
         
         <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4">
