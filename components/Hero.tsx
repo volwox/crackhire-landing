@@ -114,7 +114,7 @@ export function Hero({ variant = 'home' }: HeroProps) {
                 aria-hidden="true"
               />
               <Image
-                src="/hero-mockup.webp"
+                src="/hero-mockup1.webp"
                 alt="PM Interview Emergency Kit - PDF and Notion Tracker preview"
                 width={700}
                 height={500}
@@ -135,7 +135,7 @@ export function Hero({ variant = 'home' }: HeroProps) {
                 aria-hidden="true"
               />
               <Image
-                src="/hero-mockup.webp"
+                src="/hero-mockup1.webp"
                 alt="PM Interview Emergency Kit - PDF and Notion Tracker preview"
                 width={600}
                 height={400}
