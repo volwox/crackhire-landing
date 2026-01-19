@@ -22,7 +22,7 @@ export function ProblemSolution() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
             Recruiters{' '}
-            <span className="text-red-400">Smell Fear</span>
+            <span className="text-red-400">Smell Panic</span>
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
             Most candidates try to read more content last minute. They ramble. They freeze. They fail.
