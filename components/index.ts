@@ -2,6 +2,8 @@
 export { Button } from './Button';
 export { Card } from './Card';
 export { Badge } from './Badge';
+export { TrustBadges } from './TrustBadges';
+export { ValueBreakdown } from './ValueBreakdown';
 
 // Layout Components
 export { Header } from './Header';
