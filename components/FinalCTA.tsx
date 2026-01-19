@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { Button } from './Button';
+import { TrustBadges } from './TrustBadges';
 import { TALLY_PM_URL } from '@/lib/constants';
 import { trackCTA } from '@/lib/analytics';
 import { ArrowRightIcon } from './Icons';
@@ -28,11 +29,11 @@ export function FinalCTA() {
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-          You Have One Shot. Don’t Wing It.
+          You Have One Shot. Don't Wing It.
         </h2>
         <p className="text-lg text-slate-400 mb-8 max-w-xl mx-auto">
           Your competition has been preparing for weeks. You can get ready fast—if you drill the right way.
-          Download the kit and run the sprint.
+          Download the kit and run the protocol.
         </p>
 
         <Button href={TALLY_PM_URL} external size="lg" onClick={handleCTA}>
@@ -40,8 +41,13 @@ export function FinalCTA() {
           <ArrowRightIcon size={20} className="ml-1" />
         </Button>
 
-        <p className="text-sm text-slate-500 mt-6">
-          Instant PDF access · Optional Notion tracker (bonus) · Results vary. No guarantees.
+        {/* Trust Badges */}
+        <div className="mt-8">
+          <TrustBadges variant="pricing" />
+        </div>
+
+        <p className="text-xs text-slate-600 mt-4">
+          Results vary. No guarantees.
         </p>
       </div>
     </section>
