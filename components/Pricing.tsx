@@ -6,7 +6,7 @@ import { Button } from './Button';
 import { Badge } from './Badge';
 import { TALLY_PM_URL, PRICING, PLAYBOOK_CONTENTS } from '@/lib/constants';
 import { trackCTA } from '@/lib/analytics';
-import { CheckIcon, ArrowRightIcon, LockIcon, BookIcon } from './Icons';
+import { CheckIcon, ArrowRightIcon } from './Icons';
 
 export function Pricing() {
   const pathname = usePathname();
@@ -63,15 +63,7 @@ export function Pricing() {
               </Button>
 
               <p className="text-xs text-slate-500 text-center mt-4">
-                <span className="inline-flex items-center gap-1 justify-center">
-                  <LockIcon size={14} className="text-slate-400" />
-                  Secure checkout via Lemon Squeezy
-                </span>
-                <span className="mx-2 text-slate-700" aria-hidden="true">·</span>
-                <span className="inline-flex items-center gap-1 justify-center">
-                  <BookIcon size={14} className="text-slate-400" />
-                  Instant PDF access
-                </span>
+                Secure checkout via Stripe
               </p>
             </div>
           </Card>
