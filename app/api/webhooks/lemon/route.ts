@@ -5,13 +5,20 @@ import crypto from "crypto";
  * TikTok Purchase Event Sender (Server-side)
  */
 async function sendTikTokPurchaseEvent(order: any) {
-  const pixelId = process.env.TIKTOK_PIXEL_ID;
-  const accessToken = process.env.TIKTOK_ACCESS_TOKEN;
+ const pixelId = process.env.TIKTOK_PIXEL_ID;
+const accessToken = process.env.TIKTOK_ACCESS_TOKEN;
 
-  if (!pixelId || !accessToken) {
-    console.error("❌ Missing TikTok env variables");
-    return;
-  }
+console.log("🔐 ENV CHECK", {
+  pixelExists: !!pixelId,
+  tokenExists: !!accessToken,
+  tokenLength: accessToken?.length,
+});
+
+if (!pixelId || !accessToken) {
+  console.error("❌ Missing TikTok env variables");
+  return;
+}
+
 
   const payload = {
     pixel_code: pixelId,
