@@ -5,28 +5,27 @@ import crypto from "crypto";
  * TikTok Purchase Event Sender (Server-side)
  */
 async function sendTikTokPurchaseEvent(order: any) {
- const pixelId = process.env.TIKTOK_PIXEL_ID;
-const accessToken = process.env.TIKTOK_ACCESS_TOKEN;
+  const pixelId = process.env.TIKTOK_PIXEL_ID;
+  const accessToken = process.env.TIKTOK_ACCESS_TOKEN;
 
-console.log("🔐 ENV CHECK", {
-  pixelExists: !!pixelId,
-  tokenExists: !!accessToken,
-  tokenLength: accessToken?.length,
-});
+  console.log("🔐 ENV CHECK", {
+    pixelExists: !!pixelId,
+    tokenExists: !!accessToken,
+    tokenLength: accessToken?.length,
+  });
 
-if (!pixelId || !accessToken) {
-  console.error("❌ Missing TikTok env variables");
-  return;
-}
-
+  if (!pixelId || !accessToken) {
+    console.error("❌ Missing TikTok env variables");
+    return;
+  }
 
   const payload = {
     pixel_code: pixelId,
     event: "Purchase",
-    timestamp: Math.floor(Date.now() / 1000),
+    timestamp: String(Math.floor(Date.now() / 1000)), // ✅ MUST BE STRING
     properties: {
       currency: order.currency || "USD",
-      value: (order.totalUsd || 0) / 100, // cents → dollars
+      value: (order.totalUsd || 0) / 100,
       contents: [
         {
           content_name: order.productName,
@@ -39,17 +38,13 @@ if (!pixelId || !accessToken) {
 
   try {
     const res = await fetch(
-  "https://business-api.tiktok.com/open_api/v1.3/pixel/track/",
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Token": accessToken,   // 👈 kritik satır
-    },
-    body: JSON.stringify(payload),
-  }
-);
-
+      `https://business-api.tiktok.com/open_api/v1.3/pixel/track/?access_token=${accessToken}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }
+    );
 
     const result = await res.json();
     console.log("🎯 TikTok API Response:", result);
@@ -67,21 +62,15 @@ export async function POST(req: Request) {
     const signature = req.headers.get("x-signature");
 
     if (!signature) {
-      console.error("❌ Missing signature header");
       return NextResponse.json({ error: "Missing signature" }, { status: 401 });
     }
 
     const secret = process.env.LEMON_WEBHOOK_SECRET;
-
     if (!secret) {
-      console.error("❌ Missing LEMON_WEBHOOK_SECRET env");
-      return NextResponse.json(
-        { error: "Server misconfigured" },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: "Server misconfigured" }, { status: 500 });
     }
 
-    // 🔐 HMAC SHA256 doğrulama
+    // 🔐 Signature verification
     const hmac = crypto.createHmac("sha256", secret);
     hmac.update(rawBody, "utf8");
     const digest = hmac.digest("hex");
@@ -92,11 +81,7 @@ export async function POST(req: Request) {
     );
 
     if (!isValid) {
-      console.error("❌ Invalid webhook signature");
-      return NextResponse.json(
-        { error: "Invalid signature" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
     }
 
     console.log("✅ Webhook signature verified");
@@ -104,7 +89,6 @@ export async function POST(req: Request) {
     const payload = JSON.parse(rawBody);
     const eventName = payload?.meta?.event_name;
 
-    // 📦 Order bilgileri
     const order = payload?.data?.attributes;
     const item = order?.first_order_item;
 
@@ -122,7 +106,6 @@ export async function POST(req: Request) {
 
     console.log("📦 Extracted Order:", extracted);
 
-    // 🎯 TikTok Purchase Event
     if (eventName === "order_created") {
       await sendTikTokPurchaseEvent(extracted);
     }
