@@ -36,11 +36,28 @@ export async function POST(req: Request) {
     console.log("✅ Webhook signature verified");
 
     const payload = JSON.parse(rawBody);
-    const eventName = payload?.meta?.event_name;
+const eventName = payload?.meta?.event_name;
 
-    console.log("Event:", eventName);
+// Order bilgileri
+const order = payload?.data?.attributes;
+const item = order?.first_order_item;
 
-    return NextResponse.json({ ok: true });
+const extracted = {
+  event: eventName,
+  orderId: payload?.data?.id,
+  email: order?.user_email,
+  name: order?.user_name,
+  totalUsd: order?.total_usd,
+  currency: order?.currency,
+  productName: item?.product_name,
+  variant: item?.variant_name,
+  testMode: order?.test_mode,
+};
+
+console.log("📦 Extracted Order:", extracted);
+
+return NextResponse.json({ ok: true });
+
   } catch (err) {
     console.error("❌ Webhook error:", err);
     return NextResponse.json({ error: "Webhook failed" }, { status: 500 });
