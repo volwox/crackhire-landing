@@ -39,13 +39,17 @@ if (!pixelId || !accessToken) {
 
   try {
     const res = await fetch(
-      `https://business-api.tiktok.com/open_api/v1.3/pixel/track/?access_token=${accessToken}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      }
-    );
+  "https://business-api.tiktok.com/open_api/v1.3/pixel/track/",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Token": accessToken,   // 👈 kritik satır
+    },
+    body: JSON.stringify(payload),
+  }
+);
+
 
     const result = await res.json();
     console.log("🎯 TikTok API Response:", result);
