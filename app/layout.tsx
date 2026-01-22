@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -56,7 +57,28 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-slate-950 font-sans">{children}</body>
+      <head>
+        {/* Google Analytics */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-BVQ3CYFHPH"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BVQ3CYFHPH', {
+              anonymize_ip: true,
+              send_page_view: true
+            });
+          `}
+        </Script>
+      </head>
+
+      <body className="min-h-screen bg-slate-950 font-sans">
+        {children}
+      </body>
     </html>
   );
 }
