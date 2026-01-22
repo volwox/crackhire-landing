@@ -7,11 +7,14 @@ import crypto from "crypto";
 async function sendTikTokPurchaseEvent(order: any) {
   const pixelId = process.env.TIKTOK_PIXEL_ID;
   const accessToken = process.env.TIKTOK_ACCESS_TOKEN;
+  // Test olaylarını dashboard'da görmek için opsiyonel (Events Manager > Test Events sekmesinden alınır)
+  const testEventCode = process.env.TIKTOK_TEST_CODE; 
 
   console.log("🔐 ENV CHECK", {
     pixelExists: !!pixelId,
     tokenExists: !!accessToken,
     tokenLength: accessToken?.length,
+    testCode: testEventCode || "Not Set (Production Mode)",
   });
 
   if (!pixelId || !accessToken) {
@@ -22,12 +25,15 @@ async function sendTikTokPurchaseEvent(order: any) {
   const payload = {
     pixel_code: pixelId,
     event: "Purchase",
+    // Test kodu varsa ekle, yoksa undefined bırak (Prodüksiyon)
+    test_event_code: testEventCode || undefined, 
     timestamp: String(Math.floor(Date.now() / 1000)), // ✅ MUST BE STRING
     properties: {
       currency: order.currency || "USD",
-      value: (order.totalUsd || 0) / 100,
+      value: (order.totalUsd || 0) / 100, // Lemon Squeezy cents gönderir, 100'e bölüyoruz
       contents: [
         {
+          content_type: "product",
           content_name: order.productName,
           quantity: 1,
           price: (order.totalUsd || 0) / 100,
@@ -37,17 +43,27 @@ async function sendTikTokPurchaseEvent(order: any) {
   };
 
   try {
+    // ✅ DÜZELTME: Token URL parametresi yerine Header'a taşındı
     const res = await fetch(
-      `https://business-api.tiktok.com/open_api/v1.3/pixel/track/?access_token=${accessToken}`,
+      `https://business-api.tiktok.com/open_api/v1.3/pixel/track/`, 
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+            "Content-Type": "application/json",
+            "Access-Token": accessToken // 👈 Kritik Düzeltme Burası
+        },
         body: JSON.stringify(payload),
       }
     );
 
     const result = await res.json();
-    console.log("🎯 TikTok API Response:", result);
+    
+    if (result.code !== 0) {
+        console.error("⚠️ TikTok API Warning/Error:", result);
+    } else {
+        console.log("🎯 TikTok API Success:", result);
+    }
+    
   } catch (err) {
     console.error("❌ TikTok API Error:", err);
   }
