@@ -36,13 +36,18 @@ async function sendTikTokPurchaseEvent(order: any) {
   const payload = {
     pixel_code: pixelId,
     event: "Purchase",
-    // Test kodu varsa ekler, yoksa production modunda çalışır
-    test_event_code: testEventCode || undefined, 
+    test_event_code: testEventCode || undefined,
     timestamp: String(Math.floor(Date.now() / 1000)),
-    // 👇 KRİTİK EKLEME: Kullanıcı Verisi
-    user: {
-      email: hashedEmail, 
+    // 🛑 ESKİ YERİ (Yanlış):
+    // user: { email: hashedEmail }, 
+
+    // ✅ YENİ YERİ (Doğru): 'context' içine alıyoruz
+    context: {
+      user: {
+        email: hashedEmail,
+      },
     },
+
     properties: {
       currency: order.currency || "USD",
       value: (order.totalUsd || 0) / 100,
