@@ -55,7 +55,7 @@ export function Header() {
           </div>
 
           <Button href={TALLY_PM_URL} external size="sm" onClick={handleCTAClick}>
-            Download Emergency Kit
+            Get Interview-Ready in 48 Hours
           </Button>
         </nav>
       </div>
