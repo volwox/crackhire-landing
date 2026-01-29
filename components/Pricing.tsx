@@ -94,7 +94,7 @@ export function Pricing() {
             {/* CTA */}
             <div className="p-6">
               <Button href={TALLY_PM_URL} external fullWidth size="lg" onClick={handlePricingCTA}>
-                Download the Emergency Kit ($49)
+                Get Interview-Ready in 48 Hours ($49)
                 <ArrowRightIcon size={18} className="ml-1" />
               </Button>
 
