@@ -37,7 +37,7 @@ export function FinalCTA() {
         </p>
 
         <Button href={TALLY_PM_URL} external size="lg" onClick={handleCTA}>
-          Download the Emergency Kit ($49)
+          Get Interview-Ready in 48 Hours ($49)
           <ArrowRightIcon size={20} className="ml-1" />
         </Button>
 
