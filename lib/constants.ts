@@ -123,7 +123,7 @@ export const PLAYBOOK_CONTENTS = [
 export const HOW_IT_WORKS = [
   {
     step: 1,
-    title: "Download the Kit",
+    title: "Get Interview-Ready in 48 Hours",
     description: "One-time purchase. Instant PDF access. Optional Notion tracker included (bonus).",
   },
   {
