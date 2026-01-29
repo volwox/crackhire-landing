@@ -6,8 +6,7 @@ import { Button } from './Button';
 import { Badge } from './Badge';
 import { TrustBadges } from './TrustBadges';
 import { ValueBreakdown } from './ValueBreakdown';
-import { ArrowRightIcon, ZapIcon } from './Icons';
-import { TALLY_PM_URL } from '@/lib/constants';
+import { ArrowRightIcon } from './Icons';
 import { trackCTA } from '@/lib/analytics';
 
 interface HeroProps {
@@ -25,8 +24,9 @@ export function Hero({ variant = 'home' }: HeroProps) {
           {/* LEFT */}
           <div className="flex flex-col justify-center">
             <div className="mb-6 flex gap-3">
-              <Badge variant="primary">Emergency Interview Kit</Badge>
-              <Badge variant="secondary">48H Drill System</Badge>
+              {/* ❗ variant prop kaldırıldı (TS fix) */}
+              <Badge>Emergency Interview Kit</Badge>
+              <Badge>48H Drill System</Badge>
             </div>
 
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -65,7 +65,7 @@ export function Hero({ variant = 'home' }: HeroProps) {
               <div className="absolute -inset-4 rounded-xl bg-indigo-500/20 blur-2xl" />
               <Image
                 src="/hero-mockup1.webp"
-                alt="PM Interview Emergency Kit - PDF and Notion Tracker preview"
+                alt="PM Interview Emergency Kit preview"
                 width={600}
                 height={400}
                 className="relative z-10 rounded-lg shadow-xl"
