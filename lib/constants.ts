@@ -6,7 +6,7 @@
 // ============================================
 // TALLY FORM URLS - Single source of truth
 // ============================================
-export const TALLY_PM_URL = "https://crackhire.lemonsqueezy.com/checkout/buy/1876e063-8865-4418-a183-ccbd90527fbb";
+export const TALLY_PM_URL = "https://crackhire.lemonsqueezy.com/checkout/buy/36742a1d-a920-4ade-a142-edaa77447e2a";
 export const TALLY_WAITLIST_URL = "https://tally.so/r/2Ea2vg";
 
 // ============================================
